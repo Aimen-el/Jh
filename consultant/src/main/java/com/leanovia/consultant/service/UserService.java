@@ -258,6 +258,8 @@ public class UserService {
         if (details.get("picture") != null) {
             user.setImageUrl((String) details.get("picture"));
         }
+        user.setMission("null");
+        user.setTelephone("x");
         user.setActivated(true);
         return user;
     }

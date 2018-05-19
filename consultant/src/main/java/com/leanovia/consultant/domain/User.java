@@ -61,6 +61,73 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "image_url", length = 256)
     private String imageUrl;
 
+    @Size(max = 20)
+    @Column(name = "telephone", length = 50)
+    private String telephone;
+
+    @Size(max = 50)
+    @Column(name = "mission", length = 50)
+    private String mission;
+
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getMission() {
+        return mission;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return activated == user.activated &&
+            Objects.equals(id, user.id) &&
+            Objects.equals(login, user.login) &&
+            Objects.equals(firstName, user.firstName) &&
+            Objects.equals(lastName, user.lastName) &&
+            Objects.equals(email, user.email) &&
+            Objects.equals(langKey, user.langKey) &&
+            Objects.equals(imageUrl, user.imageUrl) &&
+            Objects.equals(telephone, user.telephone) &&
+            Objects.equals(mission, user.mission) &&
+            Objects.equals(authorities, user.authorities);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, login, firstName, lastName, email, activated, langKey, imageUrl, telephone, mission, authorities);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id='" + id + '\'' +
+            ", login='" + login + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", email='" + email + '\'' +
+            ", activated=" + activated +
+            ", langKey='" + langKey + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            ", telephone='" + telephone + '\'' +
+            ", mission='" + mission + '\'' +
+            ", authorities=" + authorities +
+            '}';
+    }
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -144,36 +211,4 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.authorities = authorities;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        User user = (User) o;
-        return !(user.getId() == null || getId() == null) && Objects.equals(getId(), user.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-            "id='" + id + '\'' +
-            ", login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", activated=" + activated +
-            ", langKey='" + langKey + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", authorities=" + authorities +
-            '}';
-    }
 }
