@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.leanovia.consultant.config.ApplicationProperties",
+      "name": "application",
+      "type": "com.leanovia.consultant.config.ApplicationProperties"
+    }
+  ],
+  "properties": []
+}

@@ -1,0 +1,15 @@
+com/leanovia/consultant/web/rest/TestUtil$ZonedDateTimeMatcher.class
+com/leanovia/consultant/web/rest/LogsResourceIntTest.class
+com/leanovia/consultant/web/rest/AuditResourceIntTest.class
+com/leanovia/consultant/web/rest/errors/ExceptionTranslatorIntTest.class
+com/leanovia/consultant/config/WebConfigurerTestController.class
+com/leanovia/consultant/web/rest/errors/ExceptionTranslatorTestController$TestResponseStatusException.class
+com/leanovia/consultant/repository/CustomAuditEventRepositoryIntTest.class
+com/leanovia/consultant/web/rest/util/PaginationUtilUnitTest.class
+com/leanovia/consultant/web/rest/TestUtil.class
+com/leanovia/consultant/config/WebConfigurerTest.class
+com/leanovia/consultant/web/rest/errors/ExceptionTranslatorTestController.class
+com/leanovia/consultant/web/rest/UserResourceIntTest.class
+com/leanovia/consultant/service/UserServiceIntTest.class
+com/leanovia/consultant/web/rest/errors/ExceptionTranslatorTestController$TestDTO.class
+com/leanovia/consultant/security/SecurityUtilsUnitTest.class
