@@ -25,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.*;
 
 /**
@@ -121,22 +122,13 @@ public class UserResource {
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
     }
-/*    @Autowired
-    UserRepository userRepository;
-    @GetMapping("/user")
-    public ResponseEntity<List<UserDTO>> listUsers(Pageable pageable,Model model, UserDTO currentUser, OAuth2Authentication authentication) throws IOException {
-        Page<UserDTO> users=null;
-
-        //UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        LinkedHashMap<String, String> details = (LinkedHashMap<String, String>)authentication.getUserAuthentication().getDetails();
-        currentUser=userService.getUserFromAuthentication(authentication);
-        boolean authorized = authentication.isAuthenticated();
-
-            return getAllUsers(pageable);
-
-    }*/
 
 
+    @RequestMapping("/user")
+    public Principal user(Principal user) {
+
+        return user;
+    }
 
 
 }

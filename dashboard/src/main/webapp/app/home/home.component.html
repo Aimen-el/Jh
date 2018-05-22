@@ -10,11 +10,53 @@
                 <span *ngIf="account"
                    > You are logged in as user "{{account.login}}". </span>
 
-                <a class="dropdown-item" href="http://localhost:8080/api/all" routerLinkActive="active">
-                    <i class="fas fa-fw fa-book" aria-hidden="true"></i>
-                    <span>User infos</span>
-                </a>
+<div *ngFor="let extra of extras">
 
+    <div class="row justify-content-md-start">
+        <div class="col-8">
+            <div *ngIf="extra">
+               <!-- <h2><span>Consultant</span> {{account.login}}</h2>-->
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row-md jh-entity-details">
+                    <dt><span>Date d'entrée</span></dt>
+                    <dd>
+                        <span>{{extra.dateEntree | date :  "fullDate"}}</span>
+                    </dd>
+                    <dt><span>Telephone</span></dt>
+                    <dd>
+                        <span>{{extra.telephone}}</span>
+                    </dd>
+                    <dt><span>Congé Payé</span></dt>
+                    <dd>
+                        <span>{{extra.congePaye}}</span>
+                    </dd>
+                    <dt><span>Mission</span></dt>
+                    <dd>
+                        <span>{{extra.mission}}</span>
+                    </dd>
+                    <dt><span>Fonction</span></dt>
+                    <dd>
+                        <span>{{extra.fonction}}</span>
+                    </dd>
+                   <!-- <dt><span>User</span></dt>
+                    <dd>
+                        {{extra.user?.login}}
+                    </dd>-->
+                </dl>
+
+
+
+                <button type="button"
+                        [routerLink]="['/extra', extra.id, 'edit']"
+                        class="btn btn-primary">
+                    <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
             </div>
 
             <div class="alert alert-warning" *ngSwitchCase="false">
@@ -28,11 +70,12 @@
         </p>
 -->
         <ul>
-            <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">JHipster homepage</a></li>
+          <!--  <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">JHipster homepage</a></li>
             <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener">JHipster on Stack Overflow</a></li>
             <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener">JHipster bug tracker</a></li>
             <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener">JHipster public chat room</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener">follow @java_hipster on Twitter</a></li>
+            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener">follow @java_hipster on Twitter</a></li>-->
+        </ul>
         </ul>
 
        <!-- <p>

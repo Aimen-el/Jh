@@ -4,6 +4,7 @@ import com.leanovia.consultant.config.Constants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.BatchSize;
 import javax.validation.constraints.Email;
 
@@ -204,7 +205,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     }
 
     public Set<Authority> getAuthorities() {
-        return authorities;
+        if (Hibernate.isInitialized(authorities)) {
+            return authorities;
+        }
+        return null;
     }
 
     public void setAuthorities(Set<Authority> authorities) {

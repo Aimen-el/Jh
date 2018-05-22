@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="extra">
+            <h2><span>Extra</span> {{extra.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Entree</span></dt>
+                <dd>
+                    <span>{{extra.dateEntree}}</span>
+                </dd>
+                <dt><span>Telephone</span></dt>
+                <dd>
+                    <span>{{extra.telephone}}</span>
+                </dd>
+                <dt><span>Conge Paye</span></dt>
+                <dd>
+                    <span>{{extra.congePaye}}</span>
+                </dd>
+                <dt><span>Mission</span></dt>
+                <dd>
+                    <span>{{extra.mission}}</span>
+                </dd>
+                <dt><span>Fonction</span></dt>
+                <dd>
+                    <span>{{extra.fonction}}</span>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{extra.user?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/extra', extra.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

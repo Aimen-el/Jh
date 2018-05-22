@@ -1,5 +1,7 @@
 package com.leanovia.consultant.config;
 
+import com.leanovia.consultant.domain.User;
+import com.leanovia.consultant.repository.UserRepository;
 import com.leanovia.consultant.security.AuthoritiesConstants;
 import com.leanovia.consultant.security.oauth2.*;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -84,4 +86,24 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
     }
+
+/*
+    @Bean
+    public PrincipalExtractor principalExtractor(UserRepository userRepository) {
+        return map -> {
+                String Id = (String) map.get("sub");
+                User user = userRepository.findOneById(Id);
+                return user;
+        };
+    }*/
+
+
+
+
+
+
+
+
+
+
 }
