@@ -47,9 +47,10 @@
 
 
 
-                <button type="button"
+               <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="button"
                         [routerLink]="['/extra', extra.id, 'edit']"
-                        class="btn btn-primary">
+                        class="btn btn-primary"
+                >
                     <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
                 </button>
             </div>
