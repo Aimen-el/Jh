@@ -14,7 +14,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>ID</span></th>
+            <th hidden><span>ID</span></th>
             <th><span>Date Entree</span></th>
             <th><span>Telephone</span></th>
             <th><span>Conge Paye</span></th>
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let extra of extras ;trackBy: trackId">
-                <td><a [routerLink]="['/extra', extra.id, 'view' ]">{{extra.id}}</a></td>
+                <td hidden><a  [routerLink]="['/extra', extra.id, 'view' ]">{{extra.id}}</a></td>
                 <td>{{extra.dateEntree | date:'mediumDate'}}</td>
                 <td>{{extra.telephone}}</td>
                 <td>{{extra.congePaye}}</td>

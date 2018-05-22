@@ -27,7 +27,7 @@
                     <dd>
                         <span>{{extra.telephone}}</span>
                     </dd>
-                    <dt><span>Congé Payé</span></dt>
+                    <dt><span>Congés Payés</span></dt>
                     <dd>
                         <span>{{extra.congePaye}}</span>
                     </dd>
@@ -47,7 +47,7 @@
 
 
 
-               <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="button"
+               <button *jhiHasAnyAuthority="'ROLE_MANAGER'"  type="button"
                         [routerLink]="['/extra', extra.id, 'edit']"
                         class="btn btn-primary"
                 >

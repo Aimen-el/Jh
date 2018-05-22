@@ -1,13 +1,13 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-extra-heading">Create or edit a Extra</h2>
+            <h2 id="jhi-extra-heading">Add or edit informations</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!extra.id">
+                <div  class="form-group" [hidden]="extra.id">
                     <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="extra.id" readonly />
+                        [(ngModel)]="extra.id"  />
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_dateEntree">Date Entree</label>
