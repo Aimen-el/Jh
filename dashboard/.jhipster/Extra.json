@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "extra"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateEntree",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "congePaye",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mission",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fonction",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180522003210",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "extra",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
