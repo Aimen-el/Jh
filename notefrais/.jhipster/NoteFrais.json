@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "dateupload",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "motif",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fichier",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20180524233832",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "note_frais",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "notefrais",
+    "searchEngine": false
+}

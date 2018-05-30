@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span>Note de Frais</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-note-frais" [routerLink]="['/note-frais/new']">
+            <span class="fas fa-plus"></span>
+            <span >
+            Ajouter une note de frais
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="noteFrais">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th hidden><span>ID</span></th>
+            <th><span>Consultant</span></th>
+            <th><span>Name</span></th>
+            <th><span>Dateupload</span></th>
+            <th><span>Etat</span></th>
+            <th><span>Motif</span></th>
+            <th><span>Fichier</span></th>
+            
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let noteFrais of noteFrais ;trackBy: trackId">
+                <td hidden><a [routerLink]="['/note-frais', noteFrais.id, 'view' ]">{{noteFrais.id}}</a></td>
+                <td>
+                {{noteFrais.consultant}}
+                   <!-- {{noteFrais.user?.firstName}}
+                    {{noteFrais.user?.lastName}} --> 
+                </td>
+                <td>{{noteFrais.name}}</td>
+                <td>{{noteFrais.dateupload | date:'mediumDate'}}</td>
+                <td>{{noteFrais.etat}}</td>
+                <td>{{noteFrais.motif}}</td>
+                
+                <td>
+                    <a *ngIf="noteFrais.fichier" (click)="openFile(noteFrais.fichierContentType, noteFrais.fichier)">open</a>
+                    <span *ngIf="noteFrais.fichier">{{noteFrais.fichierContentType}}, {{byteSize(noteFrais.fichier)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/note-frais', noteFrais.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline">Consulter</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/note-frais', noteFrais.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline">Modifier</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'note-frais/'+ noteFrais.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline">Supprimer</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

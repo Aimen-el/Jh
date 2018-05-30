@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bibliothèque</span>
+        <button id="jh-create-entity" *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-bibleo" [routerLink]="['/bibleo/new']">
+            <span class="fas fa-plus"></span>
+            <span >
+            Ajouter un livre
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="bibleos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th hidden><span>ID</span></th>
+            <th><span>Titre</span></th>
+            <th><span>Auteur</span></th>
+            <th><span>Edition</span></th>
+            <th><span>Isbn</span></th>
+            <th><span>Date d'achat</span></th>
+            <th><span>Diponibilité</span></th>
+            <th><span>Date d'emprunt</span></th>
+            <th><span>Emprunteur</span></th>
+            <th><span>Date de retour</span></th>
+            <!--  <th><span>User</span></th>    -->        
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bibleo of bibleos ;trackBy: trackId">
+                <td hidden><a [routerLink]="['/bibleo', bibleo.id, 'view' ]">{{bibleo.id}}</a></td>
+                <td>{{bibleo.titre}}</td>
+                <td>{{bibleo.auteur}}</td>
+                <td>{{bibleo.edition}}</td>
+                <td>{{bibleo.isbn}}</td>
+                <td>{{bibleo.dateachat | date:'mediumDate'}}</td>
+                <td>{{bibleo.diponibilite}}</td>
+                <td>{{bibleo.dateEmprunt | date:'mediumDate'}}</td>
+                <td>{{bibleo.emprunteur}}</td>
+                <td>{{bibleo.dateRetour | date:'mediumDate'}}</td>
+               <!-- <td>
+                    {{bibleo.user?.login}}
+                </td>-->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/bibleo', bibleo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline">consulter</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bibleo', bibleo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline">modifier</span>
+                        </button>
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bibleo/'+ bibleo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline">Supprimmer</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

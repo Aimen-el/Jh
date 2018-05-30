@@ -1,0 +1,11 @@
+package com.leanovia.consultant.repository;
+
+import com.leanovia.consultant.domain.Authority;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * Spring Data JPA repository for the Authority entity.
+ */
+public interface AuthorityRepository extends JpaRepository<Authority, String> {
+}

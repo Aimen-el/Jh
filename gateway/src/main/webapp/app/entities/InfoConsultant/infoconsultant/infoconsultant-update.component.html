@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-infoconsultant-heading">Create or edit a Infoconsultant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!infoconsultant.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="infoconsultant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateEntree">Date Entree</label>
+                    <div class="input-group">
+                        <input id="field_dateEntree" type="text" class="form-control" name="dateEntree" ngbDatepicker  #dateEntreeDp="ngbDatepicker" [(ngModel)]="infoconsultant.dateEntree"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEntreeDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="infoconsultant.phone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fonction">Fonction</label>
+                    <input type="text" class="form-control" name="fonction" id="field_fonction"
+                        [(ngModel)]="infoconsultant.fonction" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numSecSoc">Num Sec Soc</label>
+                    <input type="text" class="form-control" name="numSecSoc" id="field_numSecSoc"
+                        [(ngModel)]="infoconsultant.numSecSoc" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_missions">Missions</label>
+                    <select class="form-control" id="field_missions" name="missions" [(ngModel)]="infoconsultant.missions" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="missionsOption.id === infoconsultant.missions?.id ? infoconsultant.missions : missionsOption" *ngFor="let missionsOption of missions; trackBy: trackMissionsById">{{missionsOption.client}}: {{missionsOption.projet}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_certifications">Certifications</label>
+                    <select class="form-control" id="field_certifications" name="certifications" [(ngModel)]="infoconsultant.certifications" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="certificationsOption.id === infoconsultant.certifications?.id ? infoconsultant.certifications : certificationsOption" *ngFor="let certificationsOption of certifications; trackBy: trackCertificationsById">{{certificationsOption.certification}}</option>
+                    </select>
+                </div>
+                <div class="form-group" [hidden]="infoconsultant.user">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="infoconsultant.user"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === infoconsultant.user?.id ? infoconsultant.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required">
+                        This field is required.
+                    </small>
+                </div> 
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "dateEntree",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "congePaye",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mission",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "fonction",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180524104012",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "consultant",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "msconsultant",
+    "searchEngine": false
+}
