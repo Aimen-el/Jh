@@ -1,0 +1,6 @@
+com/leanovia/library/domain/Emprunt_.class
+com/leanovia/library/domain/Authority_.class
+com/leanovia/library/domain/Livre_.class
+com/leanovia/library/domain/User_.class
+com/leanovia/library/domain/AbstractAuditingEntity_.class
+com/leanovia/library/domain/PersistentAuditEvent_.class

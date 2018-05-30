@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "livre",
+            "otherEntityName": "livre",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateEmprunt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateRetour",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180529115725",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "emprunt",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "library",
+    "searchEngine": false
+}

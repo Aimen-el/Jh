@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "auteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "edition",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isbn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "disponibilite",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateAchat",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180529115520",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "livre",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "library",
+    "searchEngine": false
+}
