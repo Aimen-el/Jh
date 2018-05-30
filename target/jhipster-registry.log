@@ -1326,3 +1326,17 @@ Please read the documentation at http://www.jhipster.tech/jhipster-registry/
 2018-05-30 11:54:59.298  WARN 982 --- [XNIO-2 task-12] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: lease doesn't exist, registering resource: INFOCONSULTANT - InfoConsultant:e91e256a61e595712cc107556cc2d8b0
 2018-05-30 11:54:59.300  WARN 982 --- [XNIO-2 task-12] c.n.eureka.resources.InstanceResource    : Not Found (Renew): INFOCONSULTANT - InfoConsultant:e91e256a61e595712cc107556cc2d8b0
 2018-05-30 11:55:03.886  INFO 982 --- [pool-4-thread-1] i.g.j.r.service.ZuulUpdaterService       : Zuul routes have changed - refreshing the configuration
+2018-05-30 12:29:24.453  WARN 982 --- [XNIO-2 task-10] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: INFOCONSULTANT/InfoConsultant:e91e256a61e595712cc107556cc2d8b0
+2018-05-30 12:29:24.456  WARN 982 --- [TaskBatchingWorker-target_localhost-17] c.n.eureka.cluster.ReplicationTask       : The replication of task INFOCONSULTANT/InfoConsultant:e91e256a61e595712cc107556cc2d8b0:Cancel@localhost failed with response code 404
+2018-05-30 12:29:24.456  WARN 982 --- [TaskBatchingWorker-target_localhost-17] c.netflix.eureka.cluster.PeerEurekaNode  : INFOCONSULTANT/InfoConsultant:e91e256a61e595712cc107556cc2d8b0:Cancel@localhost: missing entry.
+2018-05-30 12:29:25.179  INFO 982 --- [pool-4-thread-1] i.g.j.r.service.ZuulUpdaterService       : Zuul routes have changed - refreshing the configuration
+2018-05-30 12:30:01.285  WARN 982 --- [XNIO-2 task-6] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: lease doesn't exist, registering resource: INFOCONSULTANT - InfoConsultant:532bd6fd4afab55715a19b4a1958f96d
+2018-05-30 12:30:01.286  WARN 982 --- [XNIO-2 task-6] c.n.eureka.resources.InstanceResource    : Not Found (Renew): INFOCONSULTANT - InfoConsultant:532bd6fd4afab55715a19b4a1958f96d
+2018-05-30 12:30:05.194  INFO 982 --- [pool-4-thread-1] i.g.j.r.service.ZuulUpdaterService       : Zuul routes have changed - refreshing the configuration
+2018-05-30 13:13:07.038  INFO 982 --- [pool-4-thread-1] i.g.j.r.service.ZuulUpdaterService       : Zuul routes have changed - refreshing the configuration
+2018-05-30 13:13:07.362  WARN 982 --- [XNIO-2 task-17] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: cancel failed because Lease is not registered for: INFOCONSULTANT/InfoConsultant:532bd6fd4afab55715a19b4a1958f96d
+2018-05-30 13:13:07.364  WARN 982 --- [TaskBatchingWorker-target_localhost-12] c.n.eureka.cluster.ReplicationTask       : The replication of task INFOCONSULTANT/InfoConsultant:532bd6fd4afab55715a19b4a1958f96d:Cancel@localhost failed with response code 404
+2018-05-30 13:13:07.364  WARN 982 --- [TaskBatchingWorker-target_localhost-12] c.netflix.eureka.cluster.PeerEurekaNode  : INFOCONSULTANT/InfoConsultant:532bd6fd4afab55715a19b4a1958f96d:Cancel@localhost: missing entry.
+2018-05-30 13:13:50.193  WARN 982 --- [XNIO-2 task-18] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: lease doesn't exist, registering resource: INFOCONSULTANT - InfoConsultant:e2091623cde451d14bf153f45a760558
+2018-05-30 13:13:50.201  WARN 982 --- [XNIO-2 task-18] c.n.eureka.resources.InstanceResource    : Not Found (Renew): INFOCONSULTANT - InfoConsultant:e2091623cde451d14bf153f45a760558
+2018-05-30 13:13:52.075  INFO 982 --- [pool-4-thread-1] i.g.j.r.service.ZuulUpdaterService       : Zuul routes have changed - refreshing the configuration
