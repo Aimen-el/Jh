@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-emprunt-heading">Create or edit a Emprunt</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!emprunt.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="emprunt.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateEmprunt">Date Emprunt</label>
+                    <div class="input-group">
+                        <input id="field_dateEmprunt" type="text" class="form-control" name="dateEmprunt" ngbDatepicker  #dateEmpruntDp="ngbDatepicker" [(ngModel)]="emprunt.dateEmprunt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEmpruntDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateRetour">Date Retour</label>
+                    <div class="input-group">
+                        <input id="field_dateRetour" type="text" class="form-control" name="dateRetour" ngbDatepicker  #dateRetourDp="ngbDatepicker" [(ngModel)]="emprunt.dateRetour"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRetourDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_livre">Livre</label>
+                    <select class="form-control" id="field_livre" name="livre" [(ngModel)]="emprunt.livre" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="livreOption.id === emprunt.livre?.id ? emprunt.livre : livreOption" *ngFor="let livreOption of livres; trackBy: trackLivreById">{{livreOption.titre}}</option>
+                    </select>
+                </div>
+            </div>
+             <div class="form-group" [hidden]="emprunt.user">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="emprunt.user"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === emprunt.user?.id ? emprunt.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>  
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-livre-heading">Create or edit a Livre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!livre.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="livre.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_titre">Titre</label>
+                    <input type="text" class="form-control" name="titre" id="field_titre"
+                        [(ngModel)]="livre.titre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_auteur">Auteur</label>
+                    <input type="text" class="form-control" name="auteur" id="field_auteur"
+                        [(ngModel)]="livre.auteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_edition">Edition</label>
+                    <input type="text" class="form-control" name="edition" id="field_edition"
+                        [(ngModel)]="livre.edition" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isbn">Isbn</label>
+                    <input type="text" class="form-control" name="isbn" id="field_isbn"
+                        [(ngModel)]="livre.isbn" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_disponibilite">Disponibilite</label>
+                    <input type="checkbox" class="form-control" name="disponibilite" id="field_disponibilite"
+                        [(ngModel)]="livre.disponibilite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateAchat">Date Achat</label>
+                    <div class="input-group">
+                        <input id="field_dateAchat" type="text" class="form-control" name="dateAchat" ngbDatepicker  #dateAchatDp="ngbDatepicker" [(ngModel)]="livre.dateAchat"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAchatDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

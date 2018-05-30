@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bibleo-heading">Ajouter ou modifier un livre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bibleo.id" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bibleo.id" />
+                </div>
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label class="form-control-label" for="field_titre">Titre</label>
+                    <input type="text" class="form-control" name="titre" id="field_titre"
+                        [(ngModel)]="bibleo.titre" />
+                </div>
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label class="form-control-label" for="field_auteur">Auteur</label>
+                    <input type="text" class="form-control" name="auteur" id="field_auteur"
+                        [(ngModel)]="bibleo.auteur" />
+                </div>
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label class="form-control-label" for="field_edition">Edition</label>
+                    <input type="text" class="form-control" name="edition" id="field_edition"
+                        [(ngModel)]="bibleo.edition" />
+                </div>
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label class="form-control-label" for="field_isbn">Isbn</label>
+                    <input type="text" class="form-control" name="isbn" id="field_isbn"
+                        [(ngModel)]="bibleo.isbn" />
+                </div>
+                <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <label class="form-control-label" for="field_dateachat">Date d'achat</label>
+                    <div class="input-group">
+                        <input id="field_dateachat" type="text" class="form-control" name="dateachat" ngbDatepicker  #dateachatDp="ngbDatepicker" [(ngModel)]="bibleo.dateachat"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateachatDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_diponibilite">Diponibilité</label>
+                    <input type="checkbox" class="form-control" name="diponibilite" id="field_diponibilite"
+                        [(ngModel)]="bibleo.diponibilite"/>
+                </div>
+                 <div class="form-group">
+                    <label class="form-control-label" for="field_dateachat">Date d'emprunt</label>
+                    <div class="input-group">
+                        <input id="field_dateEmprunt" type="text" class="form-control" name="dateEmprunt" ngbDatepicker  #dateEmpruntDp="ngbDatepicker" [(ngModel)]="bibleo.dateEmprunt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEmpruntDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isbn">Emprunteur</label>
+                    <input type="text" class="form-control" name="emprunteur" id="field_emprunteur"
+                        [(ngModel)]="bibleo.emprunteur"/>
+                </div>
+                 <div class="form-group">
+                    <label class="form-control-label" for="field_dateRetour">Date de retour</label>
+                    <div class="input-group">
+                        <input id="field_dateRetour" type="text" class="form-control" name="dateRetour" ngbDatepicker  #dateRetourDp="ngbDatepicker" [(ngModel)]="bibleo.dateRetour"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRetourDp.toggle()"><i class="fas fa-calendar-alt"></i></button>
+                        </span>
+                    </div>
+                </div>
+               <!--  <div class="form-group" [hidden]="bibleo.user">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="bibleo.user"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === bibleo.user?.id ? bibleo.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>-->            
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

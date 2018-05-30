@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Consultants</span>
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-consultant" [routerLink]="['/consultant/new']">
+            <span class="fas fa-plus"></span>
+            <span >
+            Create new Consultant
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="consultants">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th hidden><span>ID</span></th>
+            <th><span>Consultant</span></th>                           
+            <th><span>Date Entree</span></th>
+            <th><span>Telephone</span></th>
+            <th><span>Conge Paye</span></th>
+            <th><span>Mission</span></th>
+            <th><span>Fonction</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let consultant of consultants ;trackBy: trackId">
+                <td hidden><a [routerLink]="['/consultant', consultant.id, 'view' ]">{{consultant.id}}</a></td>
+                <td>
+                    {{consultant.user?.firstName}}
+                    {{consultant.user?.lastName}}
+                </td>
+                <td>{{consultant.dateEntree | date:'mediumDate'}}</td>
+                <td>{{consultant.telephone}}</td>
+                <td>{{consultant.congePaye}}</td>
+                <td>{{consultant.mission}}</td>
+                <td>{{consultant.fonction}}</td>
+
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/consultant', consultant.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/consultant', consultant.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'consultant/'+ consultant.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
