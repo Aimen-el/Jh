@@ -7,7 +7,6 @@ import { GatewayLivreModule as LibraryLivreModule } from './library/livre/livre.
 import { GatewayEmpruntModule as LibraryEmpruntModule } from './library/emprunt/emprunt.module';
 import { GatewayMissionsModule as InfoConsultantMissionsModule } from './InfoConsultant/missions/missions.module';
 import { GatewayCertificationsModule as InfoConsultantCertificationsModule } from './InfoConsultant/certifications/certifications.module';
-import { GatewayInfoConsultantModule as InfoConsultantInfoConsultantModule } from './InfoConsultant/info-consultant/info-consultant.module';
 import { GatewayInfoconsultantModule as InfoConsultantInfoconsultantModule } from './InfoConsultant/infoconsultant/infoconsultant.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
@@ -21,7 +20,6 @@ import { GatewayInfoconsultantModule as InfoConsultantInfoconsultantModule } fro
         LibraryEmpruntModule,
         InfoConsultantMissionsModule,
         InfoConsultantCertificationsModule,
-        InfoConsultantInfoConsultantModule,
         InfoConsultantInfoconsultantModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],

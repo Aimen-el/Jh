@@ -39,16 +39,29 @@
                     <label class="form-control-label" for="field_missions">Missions</label>
                     <select class="form-control" id="field_missions" name="missions" [(ngModel)]="infoconsultant.missions" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="missionsOption.id === infoconsultant.missions?.id ? infoconsultant.missions : missionsOption" *ngFor="let missionsOption of missions; trackBy: trackMissionsById">{{missionsOption.id}}</option>
+                        <option [ngValue]="missionsOption.id === infoconsultant.missions?.id ? infoconsultant.missions : missionsOption" *ngFor="let missionsOption of missions; trackBy: trackMissionsById">{{missionsOption.client}}: {{missionsOption.projet}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_certifications">Certifications</label>
                     <select class="form-control" id="field_certifications" name="certifications" [(ngModel)]="infoconsultant.certifications" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="certificationsOption.id === infoconsultant.certifications?.id ? infoconsultant.certifications : certificationsOption" *ngFor="let certificationsOption of certifications; trackBy: trackCertificationsById">{{certificationsOption.id}}</option>
+                        <option [ngValue]="certificationsOption.id === infoconsultant.certifications?.id ? infoconsultant.certifications : certificationsOption" *ngFor="let certificationsOption of certifications; trackBy: trackCertificationsById">{{certificationsOption.certification}}</option>
                     </select>
                 </div>
+                <div class="form-group" [hidden]="infoconsultant.user">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="infoconsultant.user"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === infoconsultant.user?.id ? infoconsultant.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required">
+                        This field is required.
+                    </small>
+                </div> 
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

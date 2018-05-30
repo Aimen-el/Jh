@@ -33,12 +33,12 @@
                 <td>{{infoconsultant.numSecSoc}}</td>
                 <td>
                     <div *ngIf="infoconsultant.missions">
-                        <a [routerLink]="['../missions', infoconsultant.missions?.id, 'view' ]" >{{infoconsultant.missions?.id}}</a>
+                        <a [routerLink]="['../missions', infoconsultant.missions?.id, 'view' ]" >{{infoconsultant.missions?.projet}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="infoconsultant.certifications">
-                        <a [routerLink]="['../certifications', infoconsultant.certifications?.id, 'view' ]" >{{infoconsultant.certifications?.id}}</a>
+                        <a [routerLink]="['../certifications', infoconsultant.certifications?.id, 'view' ]" >{{infoconsultant.certifications?.certification}}</a>
                     </div>
                 </td>
                 <td class="text-right">

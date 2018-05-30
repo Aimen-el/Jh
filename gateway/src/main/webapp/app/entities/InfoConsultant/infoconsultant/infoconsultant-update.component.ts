@@ -10,6 +10,7 @@ import { IMissions } from 'app/shared/model/InfoConsultant/missions.model';
 import { MissionsService } from 'app/entities/InfoConsultant/missions';
 import { ICertifications } from 'app/shared/model/InfoConsultant/certifications.model';
 import { CertificationsService } from 'app/entities/InfoConsultant/certifications';
+import { IUser, UserService } from 'app/core';
 
 @Component({
     selector: 'jhi-infoconsultant-update',
@@ -18,6 +19,7 @@ import { CertificationsService } from 'app/entities/InfoConsultant/certification
 export class InfoconsultantUpdateComponent implements OnInit {
     private _infoconsultant: IInfoconsultant;
     isSaving: boolean;
+    users: IUser[];       
 
     missions: IMissions[];
 
@@ -29,6 +31,7 @@ export class InfoconsultantUpdateComponent implements OnInit {
         private infoconsultantService: InfoconsultantService,
         private missionsService: MissionsService,
         private certificationsService: CertificationsService,
+        private userService: UserService,                 
         private route: ActivatedRoute
     ) {}
 
@@ -48,6 +51,11 @@ export class InfoconsultantUpdateComponent implements OnInit {
                 this.certifications = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
+        );
+         this.userService.query().subscribe(
+           (res: HttpResponse<IUser[]>) => {
+               this.users = res.body;
+           }
         );
     }
 
