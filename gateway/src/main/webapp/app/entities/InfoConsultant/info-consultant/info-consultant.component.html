@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span>Info Consultants</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-info-consultant" [routerLink]="['/info-consultant/new']">
+            <span class="fas fa-plus"></span>
+            <span >
+            Create new Info Consultant
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="infoConsultants">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Date Entree</span></th>
+            <th><span>Phone</span></th>
+            <th><span>Fonction</span></th>
+            <th><span>Num Sec Soc</span></th>
+            <th><span>Missions</span></th>
+            <th><span>Certifications</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let infoConsultant of infoConsultants ;trackBy: trackId">
+                <td><a [routerLink]="['/info-consultant', infoConsultant.id, 'view' ]">{{infoConsultant.id}}</a></td>
+                <td>{{infoConsultant.dateEntree | date:'mediumDate'}}</td>
+                <td>{{infoConsultant.phone}}</td>
+                <td>{{infoConsultant.fonction}}</td>
+                <td>{{infoConsultant.numSecSoc}}</td>
+                <td>
+                    <div *ngIf="infoConsultant.missions">
+                        <a [routerLink]="['../missions', infoConsultant.missions?.id, 'view' ]" >{{infoConsultant.missions?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="infoConsultant.certifications">
+                        <a [routerLink]="['../certifications', infoConsultant.certifications?.id, 'view' ]" >{{infoConsultant.certifications?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/info-consultant', infoConsultant.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/info-consultant', infoConsultant.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'info-consultant/'+ infoConsultant.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

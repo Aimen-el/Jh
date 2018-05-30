@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bibleo">
+            <h2><span>Titre: </span> {{bibleo.titre}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Auteur</span></dt>
+                <dd>
+                    <span>{{bibleo.auteur}}</span>
+                </dd>
+                <dt><span>Edition</span></dt>
+                <dd>
+                    <span>{{bibleo.edition}}</span>
+                </dd>
+                <dt><span>Isbn</span></dt>
+                <dd>
+                    <span>{{bibleo.isbn}}</span>
+                </dd>
+                <dt><span>Date d'achat</span></dt>
+                <dd>
+                    <span>{{bibleo.dateachat}}</span>
+                </dd>
+                <dt><span>Diponibilité</span></dt>
+                <dd>
+                    <span>{{bibleo.diponibilite}}</span>
+                </dd>
+                <dt><span>Date d'emprunt</span></dt>
+                <dd>
+                    <span>{{bibleo.dateEmprunt}}</span>
+                </dd>
+                <dt><span>Emprunteur</span></dt>
+                <dd>
+                    <span>{{bibleo.emprunteur}}</span>
+                </dd>
+                <dt><span>Date de retour</span></dt>
+                <dd>
+                    <span>{{bibleo.dateRetour}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bibleo', bibleo.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
