@@ -1,0 +1,15 @@
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/MissionsResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/UserResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/util/PaginationUtilUnitTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/CertificationsResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/errors/ExceptionTranslatorIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/repository/CustomAuditEventRepositoryIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/config/WebConfigurerTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/service/UserServiceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/TestUtil.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/security/SecurityUtilsUnitTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/InfoconsultantResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/AuditResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/LogsResourceIntTest.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/config/WebConfigurerTestController.java
+/Users/ManalCHAMI/Desktop/Jh/InfoConsultant/src/test/java/com/leanovia/consultant/web/rest/errors/ExceptionTranslatorTestController.java

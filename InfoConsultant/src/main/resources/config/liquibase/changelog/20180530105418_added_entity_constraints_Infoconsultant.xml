@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Infoconsultant.
+    -->
+    <changeSet id="20180530105418-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="missions_id"
+                                 baseTableName="infoconsultant"
+                                 constraintName="fk_infoconsultant_missions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="missions"/>
+
+        <addForeignKeyConstraint baseColumnNames="certifications_id"
+                                 baseTableName="infoconsultant"
+                                 constraintName="fk_infoconsultant_certifications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="certifications"/>
+
+    </changeSet>
+</databaseChangeLog>

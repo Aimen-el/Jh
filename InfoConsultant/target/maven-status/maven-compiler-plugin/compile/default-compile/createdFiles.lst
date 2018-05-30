@@ -1,0 +1,7 @@
+com/leanovia/consultant/domain/Infoconsultant_.class
+com/leanovia/consultant/domain/Missions_.class
+com/leanovia/consultant/domain/Authority_.class
+com/leanovia/consultant/domain/AbstractAuditingEntity_.class
+com/leanovia/consultant/domain/Certifications_.class
+com/leanovia/consultant/domain/PersistentAuditEvent_.class
+com/leanovia/consultant/domain/User_.class

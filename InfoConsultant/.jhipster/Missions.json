@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "client",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "projet",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180530105138",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "missions",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "InfoConsultant",
+    "searchEngine": false
+}

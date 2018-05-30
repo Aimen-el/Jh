@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "certification",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180530105206",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "certifications",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "InfoConsultant",
+    "searchEngine": false
+}
