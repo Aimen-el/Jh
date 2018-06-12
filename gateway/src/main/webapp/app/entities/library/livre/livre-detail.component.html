@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="livre">
-            <h2><span>Livre</span> {{livre.titre}}</h2>
+            <h2>{{livre.titre}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
@@ -21,11 +21,11 @@
                 <dd>
                     <span>{{livre.isbn}}</span>
                 </dd>
-                <dt><span>Disponibilite</span></dt>
+                <dt><span>Disponibilité</span></dt>
                 <dd>
                     <span>{{livre.disponibilite}}</span>
                 </dd>
-                <dt><span>Date Achat</span></dt>
+                <dt><span>Date d'achat</span></dt>
                 <dd>
                     <span>{{livre.dateAchat}}</span>
                 </dd>
@@ -34,13 +34,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <span class="fas fa-arrow-left"></span>&nbsp;<span> Back</span>
+                <span class="fas fa-arrow-left"></span>&nbsp;<span>Retour</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/livre', livre.id, 'edit']"
                     class="btn btn-primary">
-                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Editer</span>
             </button>
         </div>
     </div>

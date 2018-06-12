@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { JhiEventManager } from 'ng-jhipster';
-import { IConsultant } from '../shared/model/msconsultant/consultant.model';
+import { IInfoconsultant } from '../shared/model/InfoConsultant/infoconsultant.model';
 import { LoginService, Principal, Account } from 'app/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
-import { ConsultantService } from 'app/entities/msconsultant/consultant/consultant.service';
+import { InfoconsultantService } from 'app/entities/InfoConsultant/infoconsultant/infoconsultant.service';
 
 @Component({
     selector: 'jhi-home',
@@ -14,10 +14,9 @@ import { ConsultantService } from 'app/entities/msconsultant/consultant/consulta
 
 export class HomeComponent implements OnInit {
     account: Account;
-    consultant: IConsultant;
-    consultants: IConsultant[];
+    infoconsultants: IInfoconsultant[];
 
-    constructor(private consultantService: ConsultantService, private principal: Principal, private loginService: LoginService, private eventManager: JhiEventManager) {}
+    constructor(private infoconsultantService: InfoconsultantService, private principal: Principal, private loginService: LoginService, private eventManager: JhiEventManager) {}
 
     ngOnInit() {
         this.loadAll();   
@@ -39,8 +38,8 @@ export class HomeComponent implements OnInit {
     }
     
 	loadAll() { 
-		this.consultantService.query().subscribe(
-		(res: HttpResponse<IConsultant[]>) => { this.consultants = res.body; });
+		this.infoconsultantService.query().subscribe(
+		(res: HttpResponse<IInfoconsultant[]>) => { this.infoconsultants = res.body; });
     }
     
     login() {

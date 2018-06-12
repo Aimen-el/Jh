@@ -2,42 +2,45 @@
 
     <div class="col-md-9">
         <h1 class="display-4">Bienvenu dans LeanERP</h1>
-        <p class="lead">This is your Dashboard</p>
 
         <div [ngSwitch]="isAuthenticated()">
             <div class="alert alert-success" *ngSwitchCase="true">
                 <span *ngIf="account"
-                   > vous êtes connecté avec le compte  "{{account.login}}". </span>
+                   > Vous êtes connecté avec le compte  "{{account.login}}". </span>
 
-<div *ngFor="let consultant of consultants">
-<div *ngIf="consultant.user.login==account.login"> 
+<div *ngFor="let infoconsultant of infoconsultants">
+<div *ngIf="infoconsultant.user.login==account.login"> 
     <div class="row justify-content-md-start">
         <div class="col-8">
-            <div *ngIf="consultant">
-            <h2>{{consultant.user?.firstName}} {{consultant.user?.lastName}}</h2>
+            <div *ngIf="infoconsultant">
+            <h2>{{infoconsultant.user?.firstName}} {{infoconsultant.user?.lastName}}</h2>
                <!-- <h2><span>Consultant</span> {{account.login}}</h2>-->
                 <hr>
                 <jhi-alert-error></jhi-alert-error>
                 <dl class="row-md jh-entity-details">
                     <dt><span>Date d'entrée</span></dt>
                     <dd>
-                        <span>{{consultant.dateEntree | date :  "fullDate"}}</span>
+                        <span>{{infoconsultant.dateEntree | date :  "fullDate"}}</span>
                     </dd>
                     <dt><span>Telephone</span></dt>
                     <dd>
-                        <span>{{consultant.telephone}}</span>
-                    </dd>
-                    <dt><span>Congés Payés</span></dt>
-                    <dd>
-                        <span>{{consultant.congePaye}}</span>
-                    </dd>
-                    <dt><span>Mission</span></dt>
-                    <dd>
-                        <span>{{consultant.mission}}</span>
+                        <span>{{infoconsultant.phone}}</span>
                     </dd>
                     <dt><span>Fonction</span></dt>
                     <dd>
-                        <span>{{consultant.fonction}}</span>
+                        <span>{{infoconsultant.fonction}}</span>
+                    </dd>
+                    <dt><span>N° sécurité sociale</span></dt>
+                    <dd>
+                        <span>{{infoconsultant.numSecSoc}}</span>
+                    </dd>
+                    <dt><span>Mission en cours</span></dt>
+                    <dd>
+                        <span>{{infoconsultant.missions?.client}}/{{infoconsultant.missions?.projet}}</span>
+                    </dd>
+                    <dt><span>Certification en cours</span></dt>
+                    <dd>
+                        <span>{{infoconsultant.certifications?.certification}}</span>
                     </dd>
                    <!-- <dt><span>User</span></dt>
                     <dd>
@@ -62,8 +65,8 @@
             </div>
 
             <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>If you want to </span>
-                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+                <span>Vous devez se connecter</span>
+                <a class="alert-link" (click)="login()">Se connecter</a>
             </div>
         </div>        
         </ul>

@@ -1,15 +1,15 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="infoconsultant">
-            <h2><span>Infoconsultant</span> {{infoconsultant.id}}</h2>
+            <h2>{{infoconsultant.user?.firstName}} {{infoconsultant.user?.lastName}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span>Date Entree</span></dt>
+                <dt><span>Date d'entrée</span></dt>
                 <dd>
                     <span>{{infoconsultant.dateEntree}}</span>
                 </dd>
-                <dt><span>Phone</span></dt>
+                <dt><span>Téléphone</span></dt>
                 <dd>
                     <span>{{infoconsultant.phone}}</span>
                 </dd>
@@ -17,20 +17,20 @@
                 <dd>
                     <span>{{infoconsultant.fonction}}</span>
                 </dd>
-                <dt><span>Num Sec Soc</span></dt>
+                <dt><span>N° Sécurité sociale</span></dt>
                 <dd>
                     <span>{{infoconsultant.numSecSoc}}</span>
                 </dd>
-                <dt><span>Missions</span></dt>
+                <dt><span>Mission en cours</span></dt>
                 <dd>
                     <div *ngIf="infoconsultant.missions">
-                        <a [routerLink]="['/missions', infoconsultant.missions?.id, 'view']">{{infoconsultant.missions?.id}}</a>
+                        <a [routerLink]="['/missions', infoconsultant.missions?.id, 'view']">{{infoconsultant.missions?.client}}/{{infoconsultant.missions?.projet}}</a>
                     </div>
                 </dd>
-                <dt><span>Certifications</span></dt>
+                <dt><span>Certification en cours</span></dt>
                 <dd>
                     <div *ngIf="infoconsultant.certifications">
-                        <a [routerLink]="['/certifications', infoconsultant.certifications?.id, 'view']">{{infoconsultant.certifications?.id}}</a>
+                        <a [routerLink]="['/certifications', infoconsultant.certifications?.id, 'view']">{{infoconsultant.certifications?.certification}}</a>
                     </div>
                 </dd>
             </dl>
@@ -38,13 +38,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <span class="fas fa-arrow-left"></span>&nbsp;<span> Back</span>
+                <span class="fas fa-arrow-left"></span>&nbsp;<span> Retour</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/infoconsultant', infoconsultant.id, 'edit']"
                     class="btn btn-primary">
-                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Editer</span>
             </button>
         </div>
     </div>

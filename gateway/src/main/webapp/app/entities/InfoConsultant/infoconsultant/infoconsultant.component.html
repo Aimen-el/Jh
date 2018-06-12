@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span>Infoconsultants</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-infoconsultant" [routerLink]="['/infoconsultant/new']">
+        <span>Informations générales</span>
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-infoconsultant" [routerLink]="['/infoconsultant/new']">
             <span class="fas fa-plus"></span>
             <span >
-            Create new Infoconsultant
+            Ajouter un consultant
             </span>
         </button>
     </h2>
@@ -14,26 +14,31 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>ID</span></th>
-            <th><span>Date Entree</span></th>
-            <th><span>Phone</span></th>
+            <th hidden><span>ID</span></th> 
+            <th><span>Consultant</span></th>  
+            <th><span>Date d'entrée</span></th>
+            <th><span>Téléphone</span></th>
             <th><span>Fonction</span></th>
-            <th><span>Num Sec Soc</span></th>
-            <th><span>Missions</span></th>
-            <th><span>Certifications</span></th>
+            <th><span>N° sécurité sociale</span></th>
+            <th><span>Mission en cours</span></th>
+            <th><span>Certification en cours</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let infoconsultant of infoconsultants ;trackBy: trackId">
-                <td><a [routerLink]="['/infoconsultant', infoconsultant.id, 'view' ]">{{infoconsultant.id}}</a></td>
+                <td hidden><a [routerLink]="['/infoconsultant', infoconsultant.id, 'view' ]">{{infoconsultant.id}}</a></td>
+                <td>
+                    {{infoconsultant.user?.firstName}}
+                    {{infoconsultant.user?.lastName}}
+                </td>
                 <td>{{infoconsultant.dateEntree | date:'mediumDate'}}</td>
                 <td>{{infoconsultant.phone}}</td>
                 <td>{{infoconsultant.fonction}}</td>
                 <td>{{infoconsultant.numSecSoc}}</td>
                 <td>
                     <div *ngIf="infoconsultant.missions">
-                        <a [routerLink]="['../missions', infoconsultant.missions?.id, 'view' ]" >{{infoconsultant.missions?.projet}}</a>
+                        <a [routerLink]="['../missions', infoconsultant.missions?.id, 'view' ]" >{{infoconsultant.missions?.client}}/{{infoconsultant.missions?.projet}}</a>
                     </div>
                 </td>
                 <td>
@@ -47,21 +52,21 @@
                                 [routerLink]="['/infoconsultant', infoconsultant.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <span class="fas fa-eye"></span>
-                            <span class="d-none d-md-inline">View</span>
+                            <span class="d-none d-md-inline">Voir</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/infoconsultant', infoconsultant.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <span class="fas fa-pencil-alt"></span>
-                            <span class="d-none d-md-inline">Edit</span>
+                            <span class="d-none d-md-inline">Editer</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'infoconsultant/'+ infoconsultant.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <span class="fas fa-times"></span>
-                            <span class="d-none d-md-inline">Delete</span>
+                            <span class="d-none d-md-inline">Supprimer</span>
                         </button>
                     </div>
                 </td>

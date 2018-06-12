@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-livre-heading">Create or edit a Livre</h2>
+            <h2 id="jhi-livre-heading">Modifier ou ajouter un Livre</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!livre.id">
@@ -30,12 +30,12 @@
                         [(ngModel)]="livre.isbn" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_disponibilite">Disponibilite</label>
+                    <label class="form-control-label" for="field_disponibilite">Disponibilité</label>
                     <input type="checkbox" class="form-control" name="disponibilite" id="field_disponibilite"
                         [(ngModel)]="livre.disponibilite" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_dateAchat">Date Achat</label>
+                    <label class="form-control-label" for="field_dateAchat">Date d'achat</label>
                     <div class="input-group">
                         <input id="field_dateAchat" type="text" class="form-control" name="dateAchat" ngbDatepicker  #dateAchatDp="ngbDatepicker" [(ngModel)]="livre.dateAchat"
                         />
@@ -48,10 +48,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                    <span class="fas fa-ban"></span>&nbsp;<span>Annuler</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                    <span class="fas fa-save"></span>&nbsp;<span>Enregistrer</span>
                 </button>
             </div>
         </form>

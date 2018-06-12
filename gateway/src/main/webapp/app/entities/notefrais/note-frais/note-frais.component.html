@@ -16,8 +16,8 @@
             <tr>
             <th hidden><span>ID</span></th>
             <th><span>Consultant</span></th>
-            <th><span>Name</span></th>
-            <th><span>Dateupload</span></th>
+            <th><span>Type</span></th>
+            <th><span>Date de téléchargement</span></th>
             <th><span>Etat</span></th>
             <th><span>Motif</span></th>
             <th><span>Fichier</span></th>
@@ -39,8 +39,8 @@
                 <td>{{noteFrais.motif}}</td>
                 
                 <td>
-                    <a *ngIf="noteFrais.fichier" (click)="openFile(noteFrais.fichierContentType, noteFrais.fichier)">open</a>
-                    <span *ngIf="noteFrais.fichier">{{noteFrais.fichierContentType}}, {{byteSize(noteFrais.fichier)}}</span>
+                    <a *ngIf="noteFrais.fichier" (click)="openFile(noteFrais.fichierContentType, noteFrais.fichier)">Ouvrir</a>
+                    <span *ngIf="noteFrais.fichier">{{noteFrais.fichierContentType}}</span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

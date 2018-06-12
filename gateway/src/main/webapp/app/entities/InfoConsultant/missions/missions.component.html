@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span>Missions</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-missions" [routerLink]="['/missions/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-missions" [routerLink]="['/missions/new']">
             <span class="fas fa-plus"></span>
             <span >
-            Create new Missions
+            Ajouter une mission
             </span>
         </button>
     </h2>
@@ -14,7 +14,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>ID</span></th>
+            <th hidden><span>ID</span></th>
             <th><span>Client</span></th>
             <th><span>Projet</span></th>
             <th></th>
@@ -22,7 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let missions of missions ;trackBy: trackId">
-                <td><a [routerLink]="['/missions', missions.id, 'view' ]">{{missions.id}}</a></td>
+                <td hidden><a [routerLink]="['/missions', missions.id, 'view' ]">{{missions.id}}</a></td>
                 <td>{{missions.client}}</td>
                 <td>{{missions.projet}}</td>
                 <td class="text-right">
@@ -31,21 +31,21 @@
                                 [routerLink]="['/missions', missions.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <span class="fas fa-eye"></span>
-                            <span class="d-none d-md-inline">View</span>
+                            <span class="d-none d-md-inline">Voir</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                                 [routerLink]="['/missions', missions.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <span class="fas fa-pencil-alt"></span>
-                            <span class="d-none d-md-inline">Edit</span>
+                            <span class="d-none d-md-inline">Editer</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'missions/'+ missions.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <span class="fas fa-times"></span>
-                            <span class="d-none d-md-inline">Delete</span>
+                            <span class="d-none d-md-inline">Supprimmer</span>
                         </button>
                     </div>
                 </td>

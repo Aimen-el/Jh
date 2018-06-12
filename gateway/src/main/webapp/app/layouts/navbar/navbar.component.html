@@ -34,12 +34,39 @@
                             <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span>Bibliothéque</span>
                         </a>
-                    </li>-->
+                    </li>
                    <li>
                         <a class="dropdown-item" routerLink="consultant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span>Consultant</span>
                         </a>
+                    </li>-->
+                    <li>
+                        <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span>Consultant</span>
+                    </li>
+                    <li>
+	                    <ul>
+	                      <li>
+		                       <a class="dropdown-item" routerLink="infoconsultant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+		                           <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
+		                           <span>Informations générales</span>
+		                       </a>
+		                   </li>
+	                   	   <li>
+		                        <a class="dropdown-item" routerLink="missions" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+		                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
+		                            <span>Mission</span>
+		                        </a>
+		                    </li>
+		                    <li>
+		                        <a class="dropdown-item" routerLink="certifications" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+		                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
+		                            <span>Certification</span>
+		                        </a>
+		                    </li>
+		                    
+	                    </ul>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="note-frais" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
@@ -47,9 +74,13 @@
                             <span>Note Frais</span>
                         </a>
                     </li>
+                     <li>
+                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span>Bibliothèque</span>
+                        
+                    </li>
                     <li>
                     	<ul> 
-                    	                   	
                     		<li>
 		                        <a class="dropdown-item" routerLink="livre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
 		                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
@@ -65,24 +96,6 @@
                     	</ul>
                    </li>                  
                   
-                    <li>
-                        <a class="dropdown-item" routerLink="missions" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Missions</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="certifications" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Certifications</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="infoconsultant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fas fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Info Consultant</span>
-                        </a>
-                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

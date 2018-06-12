@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-consultant-heading">Create or edit a Consultant</h2>
+            <h2 id="jhi-consultant-heading">Ajouter ou lodifier un consultant</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!consultant.id">
@@ -10,7 +10,7 @@
                         [(ngModel)]="consultant.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_dateEntree">Date Entree</label>
+                    <label class="form-control-label" for="field_dateEntree">Date d'entrée</label>
                     <div class="input-group">
                         <input id="field_dateEntree" type="text" class="form-control" name="dateEntree" ngbDatepicker  #dateEntreeDp="ngbDatepicker" [(ngModel)]="consultant.dateEntree"
                         />
@@ -20,12 +20,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_telephone">Telephone</label>
+                    <label class="form-control-label" for="field_telephone">Téléphone</label>
                     <input type="text" class="form-control" name="telephone" id="field_telephone"
                         [(ngModel)]="consultant.telephone" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_congePaye">Conge Paye</label>
+                    <label class="form-control-label" for="field_congePaye">Congés Payés</label>
                     <input type="number" class="form-control" name="congePaye" id="field_congePaye"
                         [(ngModel)]="consultant.congePaye" />
                 </div>
@@ -40,7 +40,7 @@
                         [(ngModel)]="consultant.fonction" />
                 </div>
                 <div class="form-group" [hidden]="consultant.user">
-                    <label class="form-control-label" for="field_user">User</label>
+                    <label class="form-control-label" for="field_user">Consultant</label>
                     <select class="form-control" id="field_user" name="user" [(ngModel)]="consultant.user"  required>
                         <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
                         <option [ngValue]="userOption.id === consultant.user?.id ? consultant.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
@@ -56,10 +56,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                    <span class="fas fa-ban"></span>&nbsp;<span>Annuler</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                    <span class="fas fa-save"></span>&nbsp;<span>Enregistrer</span>
                 </button>
             </div>
         </form>

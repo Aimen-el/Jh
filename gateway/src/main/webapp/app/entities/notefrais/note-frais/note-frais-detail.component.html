@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="noteFrais">
-            <h2><span>Note Frais</span> {{noteFrais.id}}</h2>
+            <h2><span>Note Frais de</span> {{noteFrais.name}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
@@ -9,11 +9,11 @@
                 <dd>
                     <span>{{noteFrais.consultant}}</span>
                 </dd>
-                <dt><span>Name</span></dt>
+                <dt><span>Type</span></dt>
                 <dd>
                     <span>{{noteFrais.name}}</span>
                 </dd>
-                <dt><span>Dateupload</span></dt>
+                <dt><span>Date de téléchargement</span></dt>
                 <dd>
                     <span>{{noteFrais.dateupload}}</span>
                 </dd>
@@ -37,13 +37,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <span class="fas fa-arrow-left"></span>&nbsp;<span> Back</span>
+                <span class="fas fa-arrow-left"></span>&nbsp;<span> Retour</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/note-frais', noteFrais.id, 'edit']"
                     class="btn btn-primary">
-                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Edit</span>
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span> Editer</span>
             </button>
         </div>
     </div>

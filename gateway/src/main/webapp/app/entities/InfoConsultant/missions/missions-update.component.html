@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-missions-heading">Create or edit a Missions</h2>
+            <h2 id="jhi-missions-heading">Ajouter ou modifier une mission</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!missions.id">
@@ -23,10 +23,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                    <span class="fas fa-ban"></span>&nbsp;<span>Annuler</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                    <span class="fas fa-save"></span>&nbsp;<span>Enregistrer</span>
                 </button>
             </div>
         </form>

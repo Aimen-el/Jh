@@ -15,12 +15,12 @@
                         [(ngModel)]="noteFrais.consultant" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_name">Name</label>
+                    <label class="form-control-label" for="field_name">Type</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                         [(ngModel)]="noteFrais.name" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_dateupload">Dateupload</label>
+                    <label class="form-control-label" for="field_dateupload">Date de téléchargement</label>
                     <div class="input-group">
                         <input id="field_dateupload" type="text" class="form-control" name="dateupload" ngbDatepicker  #dateuploadDp="ngbDatepicker" [(ngModel)]="noteFrais.dateupload"
                         />
@@ -43,8 +43,8 @@
                     <label class="form-control-label" for="field_fichier">Fichier</label>
                     <div>
                         <div *ngIf="noteFrais.fichier" class="form-text text-danger clearfix">
-                            <a class="pull-left" (click)="openFile(noteFrais.fichierContentType, noteFrais.fichier)">open</a><br>
-                            <span class="pull-left">{{noteFrais.fichierContentType}}, {{byteSize(noteFrais.fichier)}}</span>
+                            <a class="pull-left" (click)="openFile(noteFrais.fichierContentType, noteFrais.fichier)">Ouvrir</a><br>
+                            <span class="pull-left">{{noteFrais.fichierContentType}}</span>
                             <button type="button" (click)="noteFrais.fichier=null;noteFrais.fichierContentType=null;"
                                     class="btn btn-secondary btn-xs pull-right">
                                 <span class="fas fa-times"></span>
@@ -74,10 +74,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <span class="fas fa-ban"></span>&nbsp;<span>Cancel</span>
+                    <span class="fas fa-ban"></span>&nbsp;<span>Annuler</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <span class="fas fa-save"></span>&nbsp;<span>Save</span>
+                    <span class="fas fa-save"></span>&nbsp;<span>Enregistrer</span>
                 </button>
             </div>
         </form>
